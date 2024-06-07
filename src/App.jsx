@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Add from "./Pages/Add"
 import View from "./Pages/View"
 import './app.css'
+import Edit from "./Pages/Edit"
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <Routes>
             <Route path="/" element={<Add/>}></Route>
             <Route path="/view" element={<View/>}></Route>
+            <Route path="/edit" element={<Edit/>}></Route>
     </Routes>
    </BrowserRouter>
    </>

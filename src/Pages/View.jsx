@@ -5,15 +5,15 @@ import Header from '../Component/Header'
 import { FaBook } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-
-
-
 import './view.css'
+import { useNavigate } from 'react-router-dom';
 
 
 const View = () => {
     const [mdelete,setmdelete]=useState([])
     const [record,setRecord]=useState([])
+
+    const Navigate=useNavigate()
     useEffect(()=>{
         let data=JSON.parse(localStorage.getItem('course')) || []
         setRecord(data)
@@ -75,7 +75,7 @@ const View = () => {
                                             <td  className='pt-4'>{val.title}</td>
                                             <td className='pt-4'>{val.dep}</td>
                                             <td>
-                                                <button className='btn mb-2' style={{fontSize:"25px",color:"green",display:"inline-block"}}><FaEdit /></button> ||
+                                                <button className='btn mb-2' style={{fontSize:"25px",color:"green",display:"inline-block"}} onClick={()=> Navigate('/edit',{state:val})}><FaEdit /></button> ||
                                                 <button className='btn mb-2' onClick={() => deleteCourse(val.id)} style={{fontSize:"25px",color:"#0d6efd",display:"inline-block"}}><MdDelete /></button> 
                                             </td>
                                             <td>
